@@ -135,7 +135,6 @@ class TweetDetailViewController: UIViewController {
         favoritesLabelView.text =  "\(tweet.favoriteCount ?? 0)"
     }
     
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -145,8 +144,7 @@ class TweetDetailViewController: UIViewController {
             replyVC.startText = "@\(tweet.user.screenName!) "
             replyVC.postButton.title = "Reply"
         }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
     }
     
 
