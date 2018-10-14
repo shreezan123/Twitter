@@ -2,7 +2,7 @@
 //  TweetDetailViewController.swift
 //  twitter_alamofire_demo
 //
-//  Created by Pranaya Adhikari on 3/23/18.
+//  Created by Shrijan Aryal on 10/13/18.
 //  Copyright © 2018 Charles Hieger. All rights reserved.
 //
 
@@ -11,7 +11,6 @@ import UIKit
 class TweetDetailViewController: UIViewController {
     
     var tweet: Tweet!
-    
     
     @IBOutlet weak var favoriteButtonLabel: UIButton!
     @IBOutlet weak var retweetButtonLabel: UIButton!
