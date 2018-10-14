@@ -3,6 +3,7 @@ import Foundation
 
 class Tweet {
     
+    // MARK: Properties
     var id: Int64 // For favoriting, retweeting & replying
     var text: String // Text content of tweet
     var favoriteCount: Int? // Update favorite count label
