@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,ComposeViewControllerDelegate {
     
     var tweets: [Tweet] = []
     
@@ -74,5 +74,42 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBAction func didTapLogout(_ sender: Any) {
+        APIManager.shared.logout()
+    }
+    
+    
+    
+    
+    @IBAction func didTapCompose(_ sender: Any) {
+        performSegue(withIdentifier: "composeSegue", sender: nil)
+        
+    }
+    
+    func did(post: Tweet) {
+        print("Yaay!!!I tweeted \(post.text)")
+    }
+    
+   
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+     // Get the new view controller using
+        if (segue.identifier == "tweetDetails"){
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell){
+                let tweetDetailVc = segue.destination as! TweetDetailViewController
+                tweetDetailVc.tweet = tweets[indexPath.row]
+            }
+        } else if(segue.identifier == "composeSegue"){
+            let composeVc = segue.destination as! ComposeViewController
+            composeVc.delegate = self
+        }
+     // Pass the selected object to the new view controller.
+     }
+   
     
 }
